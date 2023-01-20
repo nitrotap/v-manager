@@ -35,15 +35,22 @@ const typeDefs = gql`
         me: User
         users: [User]
         user(email: String!): User
-        volunteers: [Volunteer]
+        volunteers(email: String!): [Volunteer]
         volunteer(_id: ID!): Volunteer
     }
 
     type Mutation {
         addUser(email: String!, password: String!): Auth
+        updateUser(email: String!, password: String!): User
+        removeUser(email: String!): User
+
         login(email: String!, password: String!): Auth
+
         addVolunteer(firstName: String!, lastName: String!, preferredName: String, email: String, phoneNumber: String, CRM_ID: String, dateStarted: String, volunteerType: [String], lastCOI: String, lastBackgroundCheck: String, lastMissionConversation: String, staffPartner: String, user: ID!): Volunteer
+
         updateVolunteer(_id: ID!, firstName: String!, lastName: String!, preferredName: String, email: String, phoneNumber: String, CRM_ID: String, dateStarted: String, volunteerType: [String], lastCOI: String, lastBackgroundCheck: String, lastMissionConversation: String, staffPartner: String, user: ID!): Volunteer
         removeVolunteer(_id: ID!): Volunteer
     }
 `;
+
+module.exports = typeDefs;
