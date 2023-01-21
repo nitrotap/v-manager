@@ -58,17 +58,17 @@ const resolvers = {
             return { token, user };
         },
         // add mutation for updating a user
-        updateUser: async (parent, { email, password }) => {
-            const user = await User.findOneAndUpdate(
-                { email },
-                { $set: { password } },
-                { new: true }
-            );
-        },
-        // add mutation for removing a user
-        removeUser: async (parent, { email }) => {
-            return User.findOneAndDelete({ email });
-        },
+        // updateUser: async (parent, { email, password }) => {
+        //     const user = await User.findOneAndUpdate(
+        //         { email },
+        //         { $set: { password } },
+        //         { new: true }
+        //     );
+        // },
+        // // add mutation for removing a user
+        // removeUser: async (parent, { email }) => {
+        //     return User.findOneAndDelete({ email });
+        // },
 
         // add mutation for adding a volunteer
         addVolunteer: async (parent, args, context) => {
